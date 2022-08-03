@@ -1,5 +1,5 @@
 FROM node:14-alpine
+WORKDIR /back-end
 EXPOSE 3001
-ENTRYPOINT [ "./todo-app/back-end.sh" ]
 ADD ["node_modules.tar.gz", "./"]
 CMD [ "npm", "start" ]
