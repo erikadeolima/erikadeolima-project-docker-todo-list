@@ -1,7 +1,8 @@
 FROM node:14-alpine
 EXPOSE 3001
+ADD ["node_modules.tar.gz", "./"]
 ENTRYPOINT [ "./todo-app/back-end.sh" ]
-ADD ["package.json", "package-lock.json*", "./"]
+COPY ["package.json", "package-lock.json*", "./"]
 RUN npm install
-ADD . .
+COPY . .
 CMD [ "npm", "start" ]
